@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script src="script.js"></script>
+	<title>P&L Calculator</title>
+</head>
+<body>
+
+<div class="plcalculate">
+	<h1>Short Position</h1>
+	<p>
+		SL :
+		<input id="stopLoss" class="stopLoss" type="number" value="25000" onchange="updateSlider(this.value, 'stopLoss_slider');"/>
+		<div class="slidecontainer">
+  			<input type="range" min="25000" max="45000" value="50" class="slider" id="stopLoss_slider" onchange="updateTextInput(this.value, 'stopLoss');">
+		</div>
+	</p>
+
+	<p>
+		Entry price :
+		<input id="entryprice" class="entryprice" type="number" value="25000" onchange="updateSlider(this.value, 'entry_slider');"/>
+		<div class="slidecontainer">
+  			<input type="range" min="25000" max="45000" value="50" class="slider" id="entry_slider" onchange="updateTextInput(this.value, 'entryprice');">
+		</div>
+	</p>
+
+	<p>
+		TP :<input id="takeProfit" class="takeProfit" type="number" value="25000" onchange="updateSlider(this.value, 'takeProfit_slider');"/>
+		<div class="slidecontainer">
+  			<input type="range" min="25000" max="45000" value="50" class="slider" id="takeProfit_slider" onchange="updateTextInput(this.value, 'takeProfit');">
+		</div>
+	</p>
+
+
+	<p>
+		Risk to Reward Ratio: <span id="rr_ratio" class="rr_ratio"></span>
+	</p>
+
+
+	<p>
+		Leverage:<input id="leverage" class="leverage" type="number" value="1" onchange="calculate();">
+	</p>
+
+	<p>
+		Position Size: <span id="position_size" class="position_size"></span>
+	</p>
+
+	<p>
+		Contract Value: <span id="contract_value" class="contract_value"></span>
+	</p>
+
+	<p>
+		Margin (Approximate)<input id="margin" class="margin" type="number" onchange="calculate();"/>
+	</p>
+
+	<p>
+		Risk: <span id="risk" class="risk"></span>
+	</p>
+
+	<p>
+		Reward: <span id="reward" class="reward"></span>
+	</p>
+
+
+	<button onclick="Calculate()">Calculate</button>
+
+	<h2 class="profit__loss"></h2>
+	<h2 class="profit__loss__percentage"></h2>
+	<h2 class="nothing"></h2>
+
+</div>
+
+
+</body>
+</html>
